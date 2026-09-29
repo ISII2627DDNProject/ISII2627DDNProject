@@ -7,5 +7,5 @@ class Genero {
 }
 class "List`1"<T> {
 }
-Genero --> "Libros<Libro>" "List`1"
+Genero o-> "Libros<Libro>" "List`1"
 @enduml
