@@ -12,10 +12,13 @@ public class ReposicionItem
         CantidadReposicion = cantidadReposicion;
     }
 
+    public Libro Libro { get; set; }
     public int LibroId { get; set; }
 
+    public Reposicion Reposicion { get; set; }
     public int ReposicionId { get; set; }
 
+    [Range(1, int.MaxValue, ErrorMessage = "La cantidad a reponer debe ser mayor que cero.")]
     public int CantidadReposicion { get; set; }
 
     
