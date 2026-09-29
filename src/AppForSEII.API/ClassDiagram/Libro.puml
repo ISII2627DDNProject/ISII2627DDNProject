@@ -1,7 +1,7 @@
 @startuml
 class Libro {
     + Libro()
-    + Libro(titulo:string, autor:string, fechaLanzamiento:DateTime, precioReposicion:decimal, stock:int)
+    + Libro(titulo:string, autor:string, fechaLanzamiento:DateTime, precioReposicion:decimal, stock:int, genero:Genero)
     + Id : int <<get>> <<set>>
     + Titulo : string <<get>> <<set>>
     + Autor : string <<get>> <<set>>
