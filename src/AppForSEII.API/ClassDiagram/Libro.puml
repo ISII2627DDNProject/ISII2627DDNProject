@@ -8,5 +8,8 @@ class Libro {
     + PrecioReposicion : decimal <<get>> <<set>>
     + Stock : int <<get>> <<set>>
 }
+class "IList`1"<T> {
+}
+Libro --> "ReposicionItems<ReposicionItem>" "IList`1"
 Libro --> "FechaLanzamiento" DateTime
 @enduml
