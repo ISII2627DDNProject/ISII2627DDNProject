@@ -12,4 +12,5 @@ class "IList`1"<T> {
 }
 Libro --> "ReposicionItems<ReposicionItem>" "IList`1"
 Libro --> "FechaLanzamiento" DateTime
+Libro --> "Genero" Genero
 @enduml
