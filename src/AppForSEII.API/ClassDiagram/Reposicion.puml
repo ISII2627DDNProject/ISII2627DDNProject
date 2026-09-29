@@ -11,4 +11,5 @@ class "IList`1"<T> {
 }
 Reposicion --> "ReposicionItems<ReposicionItem>" "IList`1"
 Reposicion --> "FechaReposicion" DateTime
+Reposicion --> "MetodoPago" MetodoPago
 @enduml

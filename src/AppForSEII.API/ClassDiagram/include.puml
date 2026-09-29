@@ -3,6 +3,7 @@
 !include .\\Compra.puml
 !include .\\Genero.puml
 !include .\\Libro.puml
+!include .\\MetodoPago.puml
 !include .\\Reposicion.puml
 !include .\\ReposicionItem.puml
 !include .\\Resena.puml

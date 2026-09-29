@@ -25,6 +25,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<ReposicionItem> ReposicionItems { get; set; }
     public DbSet<Genero> Generos { get; set; }
 
+    public DbSet<MetodoPago> MetodoPagos { get; set; }
+
 
 
 
