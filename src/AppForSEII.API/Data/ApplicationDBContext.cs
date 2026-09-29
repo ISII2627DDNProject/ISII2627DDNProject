@@ -23,6 +23,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Reposicion> Reposiciones { get; set; }
 
     public DbSet<ReposicionItem> ReposicionItems { get; set; }
+    public DbSet<Genero> Generos { get; set; }
 
 
 

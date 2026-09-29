@@ -17,6 +17,7 @@ public class Libro
     public int Id { get; set; }
 
     public IList<ReposicionItem> ReposicionItems { get; set; }
+    
 
     [StringLength(50, ErrorMessage = "El título no puede tener más de 50 caracteres.")]
     public string Titulo { get; set; }
@@ -39,6 +40,9 @@ public class Libro
 
     [Range(0, int.MaxValue, ErrorMessage = "El stock no puede ser negativo")]
     public int Stock { get; set; }
+
+    
+    public Genero Genero{ get; set; }
 
 
 
