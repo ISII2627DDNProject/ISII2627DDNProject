@@ -23,6 +23,7 @@ public class Reposicion
     [Key]
     public int Id { get; set; }
 
+    public IList<ReposicionItem> ReposicionItems { get; set; } 
 
     [DataType(System.ComponentModel.DataAnnotations.DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

@@ -22,6 +22,8 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Resena> Resenas { get; set; }
     public DbSet<Reposicion> Reposiciones { get; set; }
 
+    public DbSet<ReposicionItem> ReposicionItems { get; set; }
+
 
 
 
