@@ -1,10 +1,11 @@
 @startuml
 class ReposicionItem {
     + ReposicionItem()
-    + ReposicionItem(libro:Libro, reposicion:Reposicion, cantidadReposicion:int)
+    + ReposicionItem(libro:Libro, reposicion:Reposicion, cantidad:int)
     + LibroId : int <<get>> <<set>>
     + ReposicionId : int <<get>> <<set>>
-    + CantidadReposicion : int <<get>> <<set>>
+    + Cantidad : int <<get>> <<set>>
+    + Precio : decimal <<get>> <<set>>
 }
 ReposicionItem --> "Libro" Libro
 ReposicionItem --> "Reposicion" Reposicion

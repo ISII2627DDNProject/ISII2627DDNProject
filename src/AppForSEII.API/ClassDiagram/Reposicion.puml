@@ -1,8 +1,8 @@
 @startuml
 class Reposicion {
     + Reposicion()
-    + Reposicion(id:int, fechaReposicion:DateTime, precioTotal:decimal, comentario:string)
-    + Reposicion(id:int, fechaReposicion:DateTime, precioTotal:decimal)
+    + Reposicion(id:int, fechaReposicion:DateTime, metodoPago:MetodoPago, reposicionItems:IList<ReposicionItem>, comentario:string)
+    + Reposicion(id:int, fechaReposicion:DateTime, metodoPago:MetodoPago, reposicionItems:IList<ReposicionItem>)
     + Id : int <<get>> <<set>>
     + PrecioTotal : decimal <<get>> <<set>>
     + Comentario : string? <<get>> <<set>>
