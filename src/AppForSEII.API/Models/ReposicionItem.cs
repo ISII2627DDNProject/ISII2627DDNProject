@@ -5,10 +5,12 @@ public class ReposicionItem
 {
     public ReposicionItem() { }
 
-    public ReposicionItem(int libroId, int reposicionId, int cantidadReposicion)
+    public ReposicionItem(Libro libro, Reposicion reposicion, int cantidadReposicion)
     {
-        LibroId = libroId;
-        ReposicionId = reposicionId;
+        Libro = libro;
+        LibroId = libro.Id;
+        Reposicion = reposicion;
+        ReposicionId = reposicion.Id;
         CantidadReposicion = cantidadReposicion;
     }
 
