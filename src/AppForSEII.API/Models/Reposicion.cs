@@ -5,19 +5,26 @@ public class Reposicion
         
     }
 
-    public Reposicion(int id, DateTime fechaReposicion, decimal precioTotal, string comentario)
+    public Reposicion(int id, DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems, string comentario)
     {
         Id = id;
         FechaReposicion = fechaReposicion;
-        PrecioTotal = precioTotal;
+        MetodoPago = metodoPago;
+        ReposicionItems = reposicionItems;
         Comentario = comentario;
+
+        PrecioTotal = reposicionItems.Sum(item => item.Precio * item.Cantidad);
+
     }
 
-    public Reposicion(int id, DateTime fechaReposicion, decimal precioTotal)
+    public Reposicion(int id, DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems)
     {
         Id = id;
         FechaReposicion = fechaReposicion;
-        PrecioTotal = precioTotal;
+        MetodoPago = metodoPago;
+        ReposicionItems = reposicionItems;
+
+        PrecioTotal = reposicionItems.Sum(item => item.Precio * item.Cantidad);
     }
 
     [Key]
