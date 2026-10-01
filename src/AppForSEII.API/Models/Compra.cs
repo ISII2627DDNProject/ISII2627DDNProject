@@ -2,12 +2,13 @@ public class Compra
 {
     public Compra(){}
 
-    public Compra (int id, DateTime fecha, decimal precioTotal, string? codigoDescuento)
+    public Compra (int id, DateTime fecha, decimal precioTotal, string? codigoDescuento, MetodoPago metodoPago)
     {
         this.Id = id;
         this.Fecha = fecha;
         this.PrecioTotal = precioTotal;
         this.CodigoDescuento = codigoDescuento;
+        this.MetodoPago = metodoPago;
     }
 
     [Key]
@@ -27,6 +28,11 @@ public class Compra
     //Relación con CompraItem
     public IList<CompraItem> CompraItems { get; set; }
 
+    //Relacion con MetodoPago
+    public MetodoPago MetodoPago { get; set; }
+
+    //Relacion con ApplicationUser
+    public ApplicationUser ApplicationUser { get; set; }
 
 // Sobreescribir Equals() y GetHashCode()
 
