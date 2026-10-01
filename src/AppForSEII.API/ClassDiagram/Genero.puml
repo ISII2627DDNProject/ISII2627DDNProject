@@ -4,8 +4,8 @@ class Genero {
     + Genero(nombre:string)
     + Id : int <<get>> <<set>>
     + Nombre : string <<get>> <<set>>
+    + Libros : List<Libro> <<get>> <<set>>
 }
-class "List`1"<T> {
-}
-Genero o-> "Libros<Libro>" "List`1"
+
+Genero o-- "0..* Libros" "Libro"
 @enduml

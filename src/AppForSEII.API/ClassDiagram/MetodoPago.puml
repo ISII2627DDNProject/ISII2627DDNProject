@@ -3,8 +3,6 @@ abstract class MetodoPago {
     + MetodoPago()
     + MetodoPago(id:int)
     + Id : int <<get>> <<set>>
+    + Reposiciones : List<Reposicion> <<get>> <<set>>
 }
-class "List`1"<T> {
-}
-MetodoPago o-> "Reposiciones<Reposicion>" "List`1"
 @enduml

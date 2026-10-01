@@ -3,8 +3,8 @@ class Compra {
     + Compra()
     + Compra(id:int, fecha:DateTime, precioTotal:decimal, codigoDescuento:string?)
     + Id : int <<get>> <<set>>
+    + Fecha : DateTime <<get>> <<set>>
     + PrecioTotal : decimal <<get>> <<set>>
     + CodigoDescuento : string? <<get>> <<set>>
 }
-Compra --> "Fecha" DateTime
 @enduml
