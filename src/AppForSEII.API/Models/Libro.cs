@@ -3,12 +3,14 @@ public class Libro
 
     public Libro(){}
 
-    public Libro (string titulo, string autor, DateTime fechaLanzamiento, decimal precioReposicion, int stock, Genero genero)
+    public Libro (int id,string titulo, string autor, DateTime fechaLanzamiento, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
     {
+        Id = id;
         Titulo = titulo;
         Autor = autor;
         FechaLanzamiento = fechaLanzamiento;
         PrecioReposicion = precioReposicion;
+        PrecioCompra = precioCompra;
         Stock = stock;
         Genero = genero;
     }
@@ -42,7 +44,10 @@ public class Libro
     [Range(0, int.MaxValue, ErrorMessage = "El stock no puede ser negativo")]
     public int Stock { get; set; }
 
-    
+    [Range(0, float.MaxValue, ErrorMessage = "El precio de compra debe ser mayor que 0")]
+    [Precision(10, 2)]
+    public decimal PrecioCompra { get; set; }
+
     public Genero Genero{ get; set; }
 
 
