@@ -2,9 +2,12 @@
 !include .\\ApplicationUser.puml
 !include .\\Compra.puml
 !include .\\Genero.puml
+!include .\\GooglePay.puml
 !include .\\Libro.puml
 !include .\\MetodoPago.puml
+!include .\\PayPal.puml
 !include .\\Reposicion.puml
 !include .\\ReposicionItem.puml
 !include .\\Resena.puml
+!include .\\Visa.puml
 @enduml

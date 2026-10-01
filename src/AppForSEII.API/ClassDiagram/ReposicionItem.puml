@@ -2,11 +2,11 @@
 class ReposicionItem {
     + ReposicionItem()
     + ReposicionItem(libro:Libro, reposicion:Reposicion, cantidad:int)
+    + Libro : Libro <<get>> <<set>>
     + LibroId : int <<get>> <<set>>
+    + Reposicion : Reposicion <<get>> <<set>>
     + ReposicionId : int <<get>> <<set>>
     + Cantidad : int <<get>> <<set>>
     + Precio : decimal <<get>> <<set>>
 }
-ReposicionItem --> "Libro" Libro
-ReposicionItem --> "Reposicion" Reposicion
 @enduml
