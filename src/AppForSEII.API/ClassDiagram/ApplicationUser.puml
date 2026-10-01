@@ -1,9 +1,11 @@
 @startuml
 class ApplicationUser {
     + ApplicationUser()
-    + ApplicationUser(id:string, name:string, surname:string, userName:string)
-    + Name : string? <<get>> <<set>>
-    + Surname : string? <<get>> <<set>>
+    + ApplicationUser(id:string, nombre:string, apellidos:string, direccion:string, telefono:string)
+    + Nombre : string? <<get>> <<set>>
+    + Apellidos : string? <<get>> <<set>>
+    + Direccion : string? <<get>> <<set>>
+    + Telefono : string? <<get>> <<set>>
 }
 IdentityUser <|-- ApplicationUser
 @enduml
