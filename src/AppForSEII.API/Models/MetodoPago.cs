@@ -1,4 +1,4 @@
-public class MetodoPago
+public abstract class MetodoPago
     {
 
         public MetodoPago()
