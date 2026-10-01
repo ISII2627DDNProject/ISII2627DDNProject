@@ -3,12 +3,13 @@ public class Libro
 
     public Libro(){}
 
-    public Libro (int id,string titulo, string autor, DateTime fechaLanzamiento, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
+    public Libro (int id,string titulo, string autor, DateTime fechaLanzamiento, Editorial editorial, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
     {
         Id = id;
         Titulo = titulo;
         Autor = autor;
         FechaLanzamiento = fechaLanzamiento;
+        Editorial = editorial;
         PrecioReposicion = precioReposicion;
         PrecioCompra = precioCompra;
         Stock = stock;
@@ -50,7 +51,8 @@ public class Libro
 
     public Genero Genero{ get; set; }
 
-
+    //Relación con Editorial
+    public Editorial Editorial { get; set; }
 
 
 // Sobreescribir Equals() y GetHashCode()
