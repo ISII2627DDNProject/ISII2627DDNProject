@@ -54,6 +54,9 @@ public class Libro
     //Relación con Editorial
     public Editorial Editorial { get; set; }
 
+    //Relación con CompraItem
+    public IList<CompraItem> CompraItems { get; set; }
+
 
 // Sobreescribir Equals() y GetHashCode()
 }
