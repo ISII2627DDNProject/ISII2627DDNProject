@@ -72,6 +72,68 @@ namespace AppForSEII.API.Data {
         }
 
 
+        public static void SeedGenresAndMovies(ApplicationDbContext dbcontext) {
+            string[] nombresGenero = ["Ciencia ficción", "Drama", "Comedia", "Tragedia"];
+            List<Genero> generos = [];
+            Libro libro;
+            foreach (string nombreGenero in nombresGenero) {
+                var genero = dbcontext.Generos.FirstOrDefault(g => g.Nombre == nombreGenero);
+                if (genero == null)
+                    generos.Add(new Genero(nombreGenero));
+                else
+                    generos.Add(genero);
+            }
+            if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "Cincuenta sombras de grey") == null) {
+                libro = new Libro("Cincuenta sombras de grey", "E.L. James",new DateTime(2011, 05, 25), 8.0m, 10, generos[1]);
+                dbcontext.Libros.Add(libro);
+
+            }
+
+            if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "El señor de los anillos") == null) {
+                libro = new Libro("El señor de los anillos", "J.R.R. Tolkin",new DateTime(1954, 07, 29), 15.0m, 20, generos[0]);
+                dbcontext.Libros.Add(libro);
+            }
+
+            //it saves the modification of dbcontext to the database
+            dbcontext.SaveChanges();
+
+            //alternatively you may have used a raw SQL
+            //dbcontext.Database.ExecuteSqlRaw("INSERT INTO [Movies] ([Id], [Title], [GenreId], [ReleaseDate], [PriceForPurchase], [QuantityForPurchase], [PriceForRenting], [QuantityForRenting]) VALUES (1, N'The lord of the rings', 1, N'2011-10-20 00:00:00', 10, 1000, 1, 100)");
+            //dbcontext.Database.ExecuteSqlRaw("INSERT INTO [Movies] ([Id], [Title], [GenreId], [ReleaseDate], [PriceForPurchase], [QuantityForPurchase], [PriceForRenting], [QuantityForRenting]) VALUES (2, N'The flying castle', 2, N'2007-04-04 00:00:00', 20, 1000, 3, 10)");
+
+
+            //Since EFCORE7, you can perform bulk updates with linq.
+            //dbcontext.Movies.ExecuteUpdate(s => s.SetProperty(m => m.QuantityForPurchase, 10));
+
+            //other example using existing information: add 100 to the QuantityForPurchase of each Movie
+            //dbcontext.Movies.ExecuteUpdate(s => s.SetProperty(m => m.QuantityForPurchase, m=>m.QuantityForPurchase+100));
+
+            //You can alternatively use raw SQL to perform the operation where performance is sensitive:
+            //dbcontext.Database.ExecuteSqlRaw("UPDATE [Movies] SET [QuantityForPurchase] = 100");
+
+            dbcontext.SaveChanges();
+
+
+        }
+
+        public static void SeedReposicion(ApplicationDbContext dbcontext, ApplicationUser user) {
+
+            if (dbcontext.Reposiciones.FirstOrDefault(p => p.Id == 1) == null) {
+                var libro = dbcontext.Libros.First();
+                var reposicion = new Reposicion(1, 
+                                            new DateTime(2026,10,1), 
+                                            new Visa(1, "4168521596321254", 
+                                            new DateTime(2028,1,1)), 
+                                            new List<ReposicionItem>());
+
+                reposicion.ReposicionItems.Add(new ReposicionItem(libro, reposicion, 5));
+                dbcontext.Reposiciones.Add(reposicion);
+            }
+            dbcontext.SaveChanges();
+
+        }
+
+
 
 
 
