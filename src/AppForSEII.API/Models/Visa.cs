@@ -1,6 +1,8 @@
 public class Visa : MetodoPago
     {
 
+        public Visa(){}
+
         public Visa(int id, string numeroTarjeta, DateTime fechaCaducidad) : base(id) // Lo modelo como string para a la larga poder hacer validaciones
         {
             NumeroTarjeta = numeroTarjeta;
