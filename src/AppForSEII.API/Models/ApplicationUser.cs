@@ -8,11 +8,13 @@ public class ApplicationUser : IdentityUser
     public ApplicationUser()
     {
     }
-    public ApplicationUser(string id, string nombre, string apellidos, string direccion, string telefono)
+    public ApplicationUser(string id, string nombre, string apellidos, string userName, string direccion, string telefono)
     {
         Id = id;
         Nombre = nombre;
         Apellidos = apellidos;
+        UserName = userName;
+        Email = userName;
         Direccion = direccion;
         Telefono = telefono;
 
