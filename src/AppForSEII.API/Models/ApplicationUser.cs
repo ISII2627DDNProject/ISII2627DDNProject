@@ -8,18 +8,30 @@ public class ApplicationUser : IdentityUser
     public ApplicationUser()
     {
     }
-    public ApplicationUser(string id, string name, string surname, string userName)
+    public ApplicationUser(string id, string nombre, string apellidos, string userName, string direccion, string telefono)
     {
         Id = id;
-        Name = name;
-        Surname = surname;
+        Nombre = nombre;
+        Apellidos = apellidos;
         UserName = userName;
         Email = userName;
+        Direccion = direccion;
+        Telefono = telefono;
+
     }
 
     [StringLength(50)]
-    public string? Name {get;set;}
+    public string? Nombre {get;set;}
 
     [StringLength(50)]
-    public string? Surname {get;set;}
+    public string? Apellidos {get;set;}
+
+    [StringLength(100)]
+    public string? Direccion {get;set;}
+
+    [StringLength(9)]
+    public string? Telefono {get;set;}
+
+
+
 }
