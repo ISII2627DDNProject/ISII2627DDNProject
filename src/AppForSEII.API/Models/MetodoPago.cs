@@ -17,6 +17,9 @@ public abstract class MetodoPago
 
         public List<Reposicion> Reposiciones { get; set; } = new List<Reposicion>(); //inicializamos por defecto
 
+        //Relación con Compra
+        public List<Compra> Compras { get; set; } = new List<Compra>(); //inicializamos por defecto
+
     
 
     }

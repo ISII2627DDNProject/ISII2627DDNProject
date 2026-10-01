@@ -32,6 +32,7 @@ public class ApplicationUser : IdentityUser
     [StringLength(9)]
     public string? Telefono {get;set;}
 
-
+    //Relación con Compra
+    public IList<Compra> Compras { get; set; } = new List<Compra>(); //inicializamos por defecto
 
 }
