@@ -84,13 +84,13 @@ namespace AppForSEII.API.Data {
                     generos.Add(genero);
             }
             if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "Cincuenta sombras de grey") == null) {
-                libro = new Libro(1, "Cincuenta sombras de grey", "E.L. James", new DateTime(2011, 05, 25), 8.0m, 12.0m, 10, generos[1]);
+                libro = new Libro(1, "Cincuenta sombras de grey", "E.L. James", new DateTime(2011, 05, 25), new Editorial(1, "Editorial XYZ"), 8.0m, 12.0m, 10, generos[1]);
                 dbcontext.Libros.Add(libro);
 
             }
 
             if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "El señor de los anillos") == null) {
-                libro = new Libro(2, "El señor de los anillos", "J.R.R. Tolkin",new DateTime(1954, 07, 29), 15.0m, 18.0m, 20, generos[0]);
+                libro = new Libro(2, "El señor de los anillos", "J.R.R. Tolkin", new DateTime(1954, 07, 29), new Editorial(2, "Editorial XYZ"), 15.0m, 18.0m, 20, generos[0]);
                 dbcontext.Libros.Add(libro);
             }
 
