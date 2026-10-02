@@ -1,18 +1,15 @@
 @startuml
 class Libro {
     + Libro()
-    + Libro(titulo:string, autor:string, fechaLanzamiento:DateTime, precioReposicion:decimal, stock:int, genero:Genero)
+    + Libro(id:int, titulo:string, autor:string, fechaLanzamiento:DateTime, editorial:Editorial, precioReposicion:decimal, precioCompra:decimal, stock:int, genero:Genero)
     + Id : int <<get>> <<set>>
-    + ReposicionItems : IList<ReposicionItem> <<get>> <<set>>
     + Titulo : string <<get>> <<set>>
-    + Autor : string <<get>> <<set>>
     + FechaLanzamiento : DateTime <<get>> <<set>>
+    + Autor : string <<get>> <<set>>
     + PrecioReposicion : decimal <<get>> <<set>>
     + Stock : int <<get>> <<set>>
-    + Genero : Genero <<get>> <<set>>
+    + PrecioCompra : decimal <<get>> <<set>>
 }
-
-Libro -- "Genero" Genero
-Libro o-- "0..* ReposicionItems" "ReposicionItem"
-
+Libro "0..*" -- "1" Genero : Genero
+Libro "0..*" -- "1" Editorial : Editorial
 @enduml

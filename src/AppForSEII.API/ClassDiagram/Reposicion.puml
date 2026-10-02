@@ -4,18 +4,9 @@ class Reposicion {
     + Reposicion(id:int, fechaReposicion:DateTime, metodoPago:MetodoPago, reposicionItems:IList<ReposicionItem>, comentario:string)
     + Reposicion(id:int, fechaReposicion:DateTime, metodoPago:MetodoPago, reposicionItems:IList<ReposicionItem>)
     + Id : int <<get>> <<set>>
-    + ReposicionItems : IList<ReposicionItem> <<get>> <<set>>
-    + FechaReposicion : DateTime <<get>> <<set>>
     + PrecioTotal : decimal <<get>> <<set>>
     + Comentario : string? <<get>> <<set>>
-    + MetodoPago : MetodoPago <<get>> <<set>>
 }
-
-Reposicion o-- "0..* ReposicionItems" "ReposicionItem"
-Reposicion -- "ApplicationUser" ApplicationUser
-Reposicion -- "MetodoPago" MetodoPago
-
-
+Reposicion --> "MetodoPago" MetodoPago
+Reposicion "0..*" -- "1" ApplicationUser : Usuario
 @enduml
-
-

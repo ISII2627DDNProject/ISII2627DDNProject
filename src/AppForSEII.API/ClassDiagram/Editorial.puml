@@ -1,9 +1,8 @@
 @startuml
-class Genero {
-    + Genero()
-    + Genero(nombre:string)
+class Editorial {
+    + Editorial()
+    + Editorial(id:int, nombre:string)
     + Id : int <<get>> <<set>>
     + Nombre : string <<get>> <<set>>
 }
-
 @enduml
