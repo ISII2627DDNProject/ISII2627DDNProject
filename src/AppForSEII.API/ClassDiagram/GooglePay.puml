@@ -1,5 +1,6 @@
 @startuml
 class GooglePay {
+    + GooglePay()
     + GooglePay(id:int, correoElectronico:string)
     + CorreoElectronico : string <<get>> <<set>>
 }

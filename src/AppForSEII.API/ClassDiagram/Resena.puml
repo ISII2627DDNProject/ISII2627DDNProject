@@ -4,6 +4,6 @@ class Resena {
     + Resena(titulo:string, fechaResena:DateTime)
     + Id : int <<get>> <<set>>
     + Titulo : string <<get>> <<set>>
-    + FechaResena : DateTime <<get>> <<set>>
 }
+Resena --> "FechaResena" DateTime
 @enduml
