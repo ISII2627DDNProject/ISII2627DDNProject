@@ -26,7 +26,7 @@ public class Compra
     public string? CodigoDescuento { get; set; }
 
     //Relación con CompraItem
-    public IList<CompraItem> CompraItems { get; set; }
+    public IList<CompraItem> CompraItems { get; set; } = new List<CompraItem>();
 
     //Relacion con MetodoPago
     public MetodoPago MetodoPago { get; set; }

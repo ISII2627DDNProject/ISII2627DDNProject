@@ -16,7 +16,7 @@ public class Editorial
     public string Nombre { get; set; }
 
     //Relación con libros
-    public IList<Libro> Libros { get; set; }
+    public IList<Libro> Libros { get; set; } = new List<Libro>();
 
     //Luego habrá que sobreescribir Equals() y GetHashCode()
 
