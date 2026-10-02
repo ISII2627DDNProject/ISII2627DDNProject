@@ -146,8 +146,34 @@ namespace AppForSEII.API.Data {
                 dbcontext.Compras.Add(compra);
             }
             dbcontext.SaveChanges();
-
         }
+        public static void SeedResena(ApplicationDbContext dbcontext, ApplicationUser user)
+{
+    if (dbcontext.Resenas.FirstOrDefault(r => r.Id == 1) == null)
+    {
+        var libro = dbcontext.Libros.First();
+
+        var resena = new Resena(
+            "Muy recomendable",
+            new DateTime(2026, 10, 1),
+            user
+        );
+
+        dbcontext.Resenas.Add(resena);
+        dbcontext.SaveChanges();
+
+        var resenaItem = new ResenaItem(
+            libro,
+            resena,
+            "Una historia muy entretenida y completa",
+            5
+        );
+
+        resena.ResenaItems.Add(resenaItem);
+
+        dbcontext.SaveChanges();
+    }
+}
 
 
 
