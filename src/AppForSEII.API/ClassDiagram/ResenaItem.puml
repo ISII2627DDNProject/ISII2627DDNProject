@@ -1,0 +1,15 @@
+@startuml
+
+class ResenaItem {
+    ResenaItem()
+    ResenaItem(libro:Libro, resena:Resena, descripcion:string, calificacion:int)
+    Descripcion : string <<get>> <<set>>
+    Calificacion : int <<get>> <<set>>
+    LibroId : int <<get>> <<set>>
+    ResenaId : int <<get>> <<set>>
+}
+
+ResenaItem "0..*" -- "1" Libro : Libro
+ResenaItem "0..*" -- "1" Resena : Resena
+
+@enduml
