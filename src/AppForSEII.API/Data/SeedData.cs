@@ -72,7 +72,7 @@ namespace AppForSEII.API.Data {
         }
 
 
-        public static void SeedGenresAndMovies(ApplicationDbContext dbcontext) {
+        public static void SeedGenresAndBooks(ApplicationDbContext dbcontext) {
             string[] nombresGenero = ["Ciencia ficción", "Drama", "Comedia", "Tragedia"];
             List<Genero> generos = [];
             Libro libro;
@@ -122,8 +122,7 @@ namespace AppForSEII.API.Data {
                 var libro = dbcontext.Libros.First();
                 var reposicion = new Reposicion(1, 
                                             new DateTime(2026,10,1), 
-                                            new Visa(1, "4168521596321254", 
-                                            new DateTime(2028,1,1)), 
+                                            new Visa(1, "4168521596321254", new DateTime(2028,1,1)), 
                                             new List<ReposicionItem>());
 
                 reposicion.ReposicionItems.Add(new ReposicionItem(libro, reposicion, 5));
@@ -133,6 +132,22 @@ namespace AppForSEII.API.Data {
 
         }
 
+         public static void SeedCompra(ApplicationDbContext dbcontext, ApplicationUser user) {
+
+            if (dbcontext.Compras.FirstOrDefault(p => p.Id == 1) == null) {
+                var libro = dbcontext.Libros.First();
+                var compra = new Compra(1, 
+                                            new DateTime(2026,10,1), 
+                                            new Decimal (50.00), 
+                                            "DESC10", 
+                                            new Visa(1,"4168521596321254", new DateTime(2028,1,1)));
+
+                compra.CompraItems.Add(new CompraItem(2, libro.Id, compra.Id));
+                dbcontext.Compras.Add(compra);
+            }
+            dbcontext.SaveChanges();
+
+        }
 
 
 
