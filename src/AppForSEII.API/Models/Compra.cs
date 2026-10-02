@@ -5,7 +5,7 @@ public class Compra
     public Compra (int id, DateTime fecha, decimal precioTotal, string? codigoDescuento, MetodoPago metodoPago)
     {
         this.Id = id;
-        this.Fecha = fecha;
+        this.FechaCompra = fecha;
         this.PrecioTotal = precioTotal;
         this.CodigoDescuento = codigoDescuento;
         this.MetodoPago = metodoPago;
@@ -16,7 +16,7 @@ public class Compra
 
     [DataType(System.ComponentModel.DataAnnotations.DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime Fecha { get; set; }
+    public DateTime FechaCompra { get; set; }
 
     [Range(0.01, float.MaxValue, ErrorMessage = "El precio total debe ser mayor que 0")]
     [Precision(10, 2)]
