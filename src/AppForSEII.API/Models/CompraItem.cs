@@ -11,7 +11,7 @@ public class CompraItem
         CompraId = compraId;
     }
 
-   [Range(1, int.MaxValue, ErrorMessage = "La cantidad debe ser mayor que 0.")]
+   [Range(2, int.MaxValue, ErrorMessage = "La cantidad debe ser mayor que 1.")]
     public int Cantidad { get; set; }
 
     public int LibroId { get; set; }
