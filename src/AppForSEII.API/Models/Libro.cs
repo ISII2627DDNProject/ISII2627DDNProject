@@ -3,11 +3,13 @@ public class Libro
 
     public Libro(){}
 
-    public Libro (int id,string titulo, string autor, DateTime fechaLanzamiento, Editorial editorial, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
+    public Libro (int id,string titulo, string tipolibro, string autor, decimal calificacionmedia, DateTime fechaLanzamiento, Editorial editorial, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
     {
         Id = id;
         Titulo = titulo;
+        TipoLibro = tipolibro;
         Autor = autor;
+        CalificacionMedia = calificacionmedia;
         FechaLanzamiento = fechaLanzamiento;
         Editorial = editorial;
         PrecioReposicion = precioReposicion;
@@ -20,16 +22,21 @@ public class Libro
     [Key]
     public int Id { get; set; }
 
-    public IList<ReposicionItem> ReposicionItems { get; set; }
-    
+    public IList<ReposicionItem> ReposicionItems { get; set; }   
+
+    public IList<ResenaItem> ResenaItems { get; set; } = new List<ResenaItem>();
 
     [StringLength(50, ErrorMessage = "El título no puede tener más de 50 caracteres.")]
     public string Titulo { get; set; }
 
-
+    [StringLength(50, MinimumLength = 10,
+    ErrorMessage = "El tipo de libro debe tener entre 10 y 50 caracteres.")]
+    public string TipoLibro { get; set; }
 
     [StringLength(50, ErrorMessage = "El autor no puede tener más de 50 caracteres.")]
     public string Autor { get; set; }
+
+    public decimal CalificacionMedia { get; set; }
 
 
     [DataType(System.ComponentModel.DataAnnotations.DataType.Date)]
