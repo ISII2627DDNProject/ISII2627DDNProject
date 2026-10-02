@@ -22,10 +22,9 @@ public class Libro
     [Key]
     public int Id { get; set; }
 
-    public IList<ReposicionItem> ReposicionItems { get; set; }
+    public IList<ReposicionItem> ReposicionItems { get; set; }   
 
     public IList<ResenaItem> ResenaItems { get; set; } = new List<ResenaItem>();
-    
 
     [StringLength(50, ErrorMessage = "El título no puede tener más de 50 caracteres.")]
     public string Titulo { get; set; }
