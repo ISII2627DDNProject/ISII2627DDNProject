@@ -62,7 +62,7 @@ public class Libro
     public Editorial Editorial { get; set; }
 
     //Relación con CompraItem
-    public IList<CompraItem> CompraItems { get; set; }
+    public IList<CompraItem> CompraItems { get; set; } = new List<CompraItem>();
 
 
 // Sobreescribir Equals() y GetHashCode()
