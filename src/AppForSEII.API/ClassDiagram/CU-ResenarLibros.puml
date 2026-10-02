@@ -1,0 +1,12 @@
+@startuml
+
+hide methods
+
+!include .\ApplicationUser.puml
+!include .\Genero.puml
+!include .\Libro.puml
+!include .\Editorial.puml
+!include .\Resena.puml
+!include .\ResenaItem.puml
+
+@enduml
