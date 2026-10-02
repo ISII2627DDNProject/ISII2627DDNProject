@@ -35,4 +35,6 @@ public class ApplicationUser : IdentityUser
     //Relación con Compra
     public IList<Compra> Compras { get; set; } = new List<Compra>(); //inicializamos por defecto
 
+    public IList<Resena> Resenas { get; set; } = new List<Resena>();    
+    
 }

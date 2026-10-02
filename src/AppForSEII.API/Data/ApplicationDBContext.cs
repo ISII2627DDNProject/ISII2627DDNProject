@@ -22,6 +22,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     public DbSet<Compra> Compras { get; set; }
     public DbSet<Resena> Resenas { get; set; }
+    public DbSet<ResenaItem> ResenaItems { get; set; }
     public DbSet<Reposicion> Reposiciones { get; set; }
 
     public DbSet<ReposicionItem> ReposicionItems { get; set; }
