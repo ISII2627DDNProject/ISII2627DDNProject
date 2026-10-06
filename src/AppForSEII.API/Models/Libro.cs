@@ -3,9 +3,8 @@ public class Libro
 
     public Libro(){}
 
-    public Libro (int id,string titulo, string tipolibro, string autor, decimal calificacionmedia, DateTime fechaLanzamiento, Editorial editorial, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
+    public Libro (string titulo, string tipolibro, string autor, decimal calificacionmedia, DateTime fechaLanzamiento, Editorial editorial, decimal precioReposicion, decimal precioCompra, int stock, Genero genero)
     {
-        Id = id;
         Titulo = titulo;
         TipoLibro = tipolibro;
         Autor = autor;
