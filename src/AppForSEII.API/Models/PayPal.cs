@@ -2,7 +2,7 @@ public class PayPal : MetodoPago
     {
 
         public PayPal(){}
-        public PayPal(int id, string telefono) : base(id)
+        public PayPal(string telefono) : base()
         {
             Telefono = telefono;
         }

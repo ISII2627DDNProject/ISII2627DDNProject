@@ -2,7 +2,7 @@ public class GooglePay : MetodoPago
     {
 
         public GooglePay() { }
-        public GooglePay(int id, string correoElectronico) : base(id)
+        public GooglePay(string correoElectronico) : base()
         {
             CorreoElectronico = correoElectronico;
         }

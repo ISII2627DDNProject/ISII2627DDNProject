@@ -20,8 +20,47 @@ namespace AppForSEII.API.Data {
             }
 
             
+            try {
+                SeedGenresAndBooks(dbContext);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding the Books and Genres in the Database.");
+            }            
+            
+
+            try {
+                var user = dbContext.Users.OfType<ApplicationUser>().FirstOrDefault(u => u.UserName == "elena@uclm.es");
+
+                SeedReposicion(dbContext, user);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding a Reposition in the Database.");
+            }
+
+            
+            try {
+                var user = dbContext.Users.OfType<ApplicationUser>().FirstOrDefault(u => u.UserName == "elena@uclm.es");
+
+                SeedCompra(dbContext, user);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding a Purchase in the Database.");
+            }
+
+            
+            try {
+                var user = dbContext.Users.OfType<ApplicationUser>().FirstOrDefault(u => u.UserName == "elena@uclm.es");
+
+                SeedResena(dbContext, user);
+            }
+            catch (Exception ex) {
+                logger.LogError(ex, "An error occurred seeding a Review in the Database.");
+            }
+
+ 
 
         }
+
 
         public static void SeedRoles(RoleManager<IdentityRole> roleManager, List<string> roles) {
 
@@ -137,9 +176,9 @@ namespace AppForSEII.API.Data {
 
             if (dbcontext.Reposiciones.FirstOrDefault(p => p.Id == 1) == null) {
                 var libro = dbcontext.Libros.First();
-                var reposicion = new Reposicion(1,
+                var reposicion = new Reposicion(
                                             new DateTime(2026,10,1), 
-                                            new Visa(1, "4168521596321254", new DateTime(2028,1,1)), 
+                                            new Visa("4168521596321254", new DateTime(2028,1,1)), 
                                             new List<ReposicionItem>());
 
                 reposicion.ReposicionItems.Add(new ReposicionItem(libro, reposicion, 5));
@@ -153,11 +192,13 @@ namespace AppForSEII.API.Data {
 
             if (dbcontext.Compras.FirstOrDefault(p => p.Id == 1) == null) {
                 var libro = dbcontext.Libros.First();
-                var compra = new Compra(1,
+                var compra = new Compra(
                                             new DateTime(2026,10,1), 
                                             new Decimal (50.00), 
                                             "DESC10", 
-                                            new Visa(1,"4168521596321254", new DateTime(2028,1,1)));
+                                            new Visa("4168521596321254", new DateTime(2028,1,1)));
+
+                compra.ApplicationUser = user;
 
                 compra.CompraItems.Add(new CompraItem(2, libro.Id, compra.Id));
                 dbcontext.Compras.Add(compra);
