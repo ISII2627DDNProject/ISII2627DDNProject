@@ -2,6 +2,11 @@ public class Editorial
 {
     public Editorial() { }
 
+    public Editorial(string nombre)
+    {
+        Nombre = nombre;
+    }
+
     public Editorial(int id, string nombre)
     {
         Id = id;

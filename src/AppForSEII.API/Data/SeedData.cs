@@ -19,7 +19,7 @@ namespace AppForSEII.API.Data {
                 logger.LogError(ex, "An error occurred seeding the Users in the Database.");
             }
 
- 
+            
 
         }
 
@@ -75,7 +75,11 @@ namespace AppForSEII.API.Data {
         public static void SeedGenresAndBooks(ApplicationDbContext dbcontext) {
             string[] nombresGenero = ["Ciencia ficción", "Drama", "Comedia", "Tragedia"];
             List<Genero> generos = [];
+            string[] nombresEditorial = ["Editorial ABC", "Editorial XYZ"];
+            List<Editorial> editoriales = [];
+
             Libro libro;
+
             foreach (string nombreGenero in nombresGenero) {
                 var genero = dbcontext.Generos.FirstOrDefault(g => g.Nombre == nombreGenero);
                 if (genero == null)
@@ -83,14 +87,27 @@ namespace AppForSEII.API.Data {
                 else
                     generos.Add(genero);
             }
+
+            foreach (string nombreEditorial in nombresEditorial) {
+                var editorial = dbcontext.Editoriales.FirstOrDefault(e => e.Nombre == nombreEditorial);
+                if (editorial == null)
+                {
+                    editoriales.Add(new Editorial(nombreEditorial));
+                }
+
+                else
+                    editoriales.Add(editorial);
+            }
+
+
             if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "Cincuenta sombras de grey") == null) {
-                libro = new Libro(1, "Cincuenta sombras de grey","placeholder", "E.L. James",0m, new DateTime(2011, 05, 25), new Editorial(1, "Editorial XYZ"), 8.0m, 12.0m, 10, generos[1]);
+                libro = new Libro("Cincuenta sombras de grey","placeholder", "E.L. James",0m, new DateTime(2011, 05, 25), editoriales[0], 8.0m, 12.0m, 10, generos[1]);
                 dbcontext.Libros.Add(libro);
 
             }
 
             if (dbcontext.Libros.FirstOrDefault(m => m.Titulo == "El señor de los anillos") == null) {
-                libro = new Libro(2, "El señor de los anillos","placeholder", "J.R.R. Tolkin", 0m, new DateTime(1954, 07, 29), new Editorial(2, "Editorial XYZ"), 15.0m, 18.0m, 20, generos[0]);
+                libro = new Libro("El señor de los anillos","placeholder", "J.R.R. Tolkin", 0m, new DateTime(1954, 07, 29), editoriales[1], 15.0m, 18.0m, 20, generos[0]);
                 dbcontext.Libros.Add(libro);
             }
 
@@ -120,7 +137,7 @@ namespace AppForSEII.API.Data {
 
             if (dbcontext.Reposiciones.FirstOrDefault(p => p.Id == 1) == null) {
                 var libro = dbcontext.Libros.First();
-                var reposicion = new Reposicion(1, 
+                var reposicion = new Reposicion(1,
                                             new DateTime(2026,10,1), 
                                             new Visa(1, "4168521596321254", new DateTime(2028,1,1)), 
                                             new List<ReposicionItem>());
@@ -136,7 +153,7 @@ namespace AppForSEII.API.Data {
 
             if (dbcontext.Compras.FirstOrDefault(p => p.Id == 1) == null) {
                 var libro = dbcontext.Libros.First();
-                var compra = new Compra(1, 
+                var compra = new Compra(1,
                                             new DateTime(2026,10,1), 
                                             new Decimal (50.00), 
                                             "DESC10", 
@@ -148,35 +165,32 @@ namespace AppForSEII.API.Data {
             dbcontext.SaveChanges();
         }
         public static void SeedResena(ApplicationDbContext dbcontext, ApplicationUser user)
-{
-    if (dbcontext.Resenas.FirstOrDefault(r => r.Id == 1) == null)
-    {
-        var libro = dbcontext.Libros.First();
+        {
+            if (dbcontext.Resenas.FirstOrDefault(r => r.Id == 1) == null)
+            {
+                var libro = dbcontext.Libros.First();
 
-        var resena = new Resena(
-            "Muy recomendable",
-            new DateTime(2026, 10, 1),
-            user
-        );
+                var resena = new Resena(
+                    "Muy recomendable",
+                    new DateTime(2026, 10, 1),
+                    user
+                );
 
-        dbcontext.Resenas.Add(resena);
-        dbcontext.SaveChanges();
+                dbcontext.Resenas.Add(resena);
+                dbcontext.SaveChanges();
 
-        var resenaItem = new ResenaItem(
-            libro,
-            resena,
-            "Una historia muy entretenida y completa",
-            5
-        );
+                var resenaItem = new ResenaItem(
+                    libro,
+                    resena,
+                    "Una historia muy entretenida y completa",
+                    5
+                );
 
-        resena.ResenaItems.Add(resenaItem);
+                resena.ResenaItems.Add(resenaItem);
 
-        dbcontext.SaveChanges();
-    }
-}
-
-
-
+                dbcontext.SaveChanges();
+            }
+        }
 
     }
 }
