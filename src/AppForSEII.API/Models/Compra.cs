@@ -2,9 +2,8 @@ public class Compra
 {
     public Compra(){}
 
-    public Compra (int id, DateTime fecha, decimal precioTotal, string? codigoDescuento, MetodoPago metodoPago)
+    public Compra (DateTime fecha, decimal precioTotal, string? codigoDescuento, MetodoPago metodoPago)
     {
-        this.Id = id;
         this.FechaCompra = fecha;
         this.PrecioTotal = precioTotal;
         this.CodigoDescuento = codigoDescuento;

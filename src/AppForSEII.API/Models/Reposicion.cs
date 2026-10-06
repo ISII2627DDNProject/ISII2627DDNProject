@@ -5,9 +5,8 @@ public class Reposicion
         
     }
 
-    public Reposicion(int id, DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems, string comentario)
+    public Reposicion(DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems, string comentario)
     {
-        Id = id;
         FechaReposicion = fechaReposicion;
         MetodoPago = metodoPago;
         ReposicionItems = reposicionItems;
@@ -17,9 +16,8 @@ public class Reposicion
 
     }
 
-    public Reposicion(int id, DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems)
+    public Reposicion(DateTime fechaReposicion, MetodoPago metodoPago, IList<ReposicionItem> reposicionItems)
     {
-        Id = id;
         FechaReposicion = fechaReposicion;
         MetodoPago = metodoPago;
         ReposicionItems = reposicionItems;
