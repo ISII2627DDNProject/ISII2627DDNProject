@@ -34,8 +34,7 @@ public class Libro
 
     [StringLength(50, ErrorMessage = "El autor no puede tener más de 50 caracteres.")]
     public string Autor { get; set; }
-
-    [Precision(3, 2)]
+    [Precision(3,2)]
     public decimal CalificacionMedia { get; set; }
 
 
